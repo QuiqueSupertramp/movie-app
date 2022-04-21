@@ -8,20 +8,21 @@ const NavBar = () => {
 	const [show, setShow] = useState(false);
 
 	const { genres } = useContext(GenresContext);
-	console.log('genres', genres);
 
 	return (
 		<div className='flex justify-between items-center px-10 py-4 bg-slate-900'>
-			<div onClick={() => setShow(!show)} className='relative text-slate-50'>
+			<div
+				onClick={() => setShow(!show)}
+				className='w-full relative text-slate-50'>
 				<button onClick={() => setShow(!show)}>Categorias ▼</button>
 				<div
-					className={`absolute z-10 p-4 bg-opacity-20 mt-1 backdrop-blur-md origin-bottom-left left-0 bg-slate-200 rounded-sm columns-4 whitespace-nowrap ${
+					className={`absolute z-10 p-4 bg-opacity-60 mt-2 backdrop-blur-md origin-bottom-left left-0 bg-slate-300 rounded-sm columns-4 whitespace-nowrap ${
 						show ? 'normal' : 'hidden'
 					}`}>
 					{genres &&
 						genres.map(genre => (
 							<Link
-								className='text-slate-50 hover:text-orange-400'
+								className='text-black hover:text-orange-700'
 								key={genre.id}
 								to={`categories?genreID=${genre.id}&genreName=${genre.name}&page=1`}>
 								<p>{genre.name}</p>
@@ -29,10 +30,13 @@ const NavBar = () => {
 						))}
 				</div>
 			</div>
-			<Link className='font-bold text-2xl text-slate-400' to='/'>
+			<Link
+				className='w-full text-center font-bold text-2xl text-slate-400'
+				to='/'>
 				Movies-app
 			</Link>
 			<form
+				className='w-full text-right'
 				onSubmit={async e => {
 					e.preventDefault();
 					navigate(`search?query=${query}&page=1`);

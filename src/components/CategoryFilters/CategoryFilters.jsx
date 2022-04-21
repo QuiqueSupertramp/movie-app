@@ -2,15 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import FilterButton from './FilterButton';
 
-const CategoryFilters = ({
-	setGenreParam,
-	setSortByParam,
-	setMinVotesParam,
-	setPageParam,
-	toggleModal,
-	params,
-	genres,
-}) => {
+const CategoryFilters = ({ toggleModal, params, genres }) => {
 	const navigate = useNavigate();
 	const [filters, setFilters] = useState({
 		genre: params.get('genreID'),
@@ -102,10 +94,6 @@ const CategoryFilters = ({
 
 			<button
 				onClick={() => {
-					setSortByParam(filters.sortBy);
-					setMinVotesParam(filters.minVotes);
-					setGenreParam(filters.genre, filters.title);
-					setPageParam(1);
 					navigate(
 						`/categories?genreID=${filters.genre}&genreName=${
 							filters.title
@@ -115,7 +103,7 @@ const CategoryFilters = ({
 					);
 					toggleModal();
 				}}>
-				Aceptar
+				Filtrar
 			</button>
 		</div>
 	);

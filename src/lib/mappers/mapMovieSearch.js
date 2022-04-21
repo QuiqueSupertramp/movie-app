@@ -1,4 +1,4 @@
-export default function mapTrendingSearch(results) {
+export default function mapMovieSearch(results) {
 	if (results.length === 0) return [];
 	const data = results.map((movie, index) => ({
 		id: movie.id || index,

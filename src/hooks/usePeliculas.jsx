@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
-import mapTrendingSearch from '../lib/mappers/mapTrendingSearch';
+import mapMovieSearch from '../lib/mappers/mapMovieSearch';
 import getByCategory from '../services/getByCategory';
 import getByQuery from '../services/getByQuery';
 import getTrending from '../services/getTrending';
@@ -30,20 +30,20 @@ const usePeliculas = (by, category) => {
 		setTrendingMovies(initialState);
 
 		const getFunction = () => {
-			if (by === 'trending') return getTrending();
+			if (by === 'trending') return getTrending(searchParams);
 			if (by === 'query') return getByQuery(searchParams);
 			if (by === 'category') return getByCategory(searchParams, category);
 		};
 
 		const { success, data, error } = await getFunction();
 
-		if (data.page > data.total_pages) {
+		if (data?.page > data?.total_pages) {
 			setPageParam(1);
 			return;
 		}
 
 		setTrendingMovies({
-			movies: mapTrendingSearch(data.results),
+			movies: mapMovieSearch(data.results),
 			error: {
 				status: !success,
 				statusCode: error.code,

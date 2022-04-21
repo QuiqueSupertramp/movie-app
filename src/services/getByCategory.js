@@ -4,7 +4,7 @@ import movieFetch from './movieFetch';
 const getByCategory = async (searchParams, category) => {
 	const genre = category || searchParams.get('genreID');
 	const sortBy = searchParams.get('sortBy') ?? 'vote_average.desc';
-	const minVotes = searchParams.get('minVotes') ?? 100;
+	const minVotes = searchParams.get('minVotes') ?? 1000;
 	const page = searchParams.get('page') ?? 1;
 	const year = searchParams.get('year');
 
