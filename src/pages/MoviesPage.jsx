@@ -9,7 +9,7 @@ const MoviesPage = () => {
 	const voteCount = Number(movie.data?.voteCount).toLocaleString();
 	const overview = movie.data?.overview;
 	const image = movie.data?.image;
-	const trailer = movie.data?.trailer;
+	const trailer = movie.data?.trailer ?? null;
 
 	return (
 		<div>
@@ -49,7 +49,7 @@ const MoviesPage = () => {
 							/>
 						</div>
 					</article>
-					{movie.data?.trailer && (
+					{trailer && (
 						<iframe
 							className='mx-auto h-[70vw] max-h-screen w-full py-20 px-20 lg:px-40 rounded-md'
 							src={`https://www.youtube.com/embed/${trailer}`}></iframe>

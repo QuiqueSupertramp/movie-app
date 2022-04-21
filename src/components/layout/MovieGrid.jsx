@@ -10,7 +10,7 @@ const MovieGrid = ({ by }) => {
 				{isLoading && <h2>Cargando...</h2>}
 				{error.status !== false && <h2>Error...</h2>}
 				{!isLoading &&
-					movies &&
+					// movies &&
 					movies.map(movie => {
 						return (
 							<MovieCard
