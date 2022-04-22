@@ -1,8 +1,7 @@
 import { useContext } from 'react';
-import Category from '../components/layout/Category';
-import Trendings from '../components/Trendings/Trendings';
-import GenresContext from '../Context/GenresContext';
-// import useGenres from '../hooks/useGenres';
+import Category from '@/components/layout/Category';
+import Trendings from '@/components/Trendings/Trendings';
+import GenresContext from '@/Context/GenresContext';
 
 const HomePage = () => {
 	const { genres, error, isLoading } = useContext(GenresContext);

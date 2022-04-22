@@ -9,8 +9,8 @@ const MovieGrid = ({ by }) => {
 			<div className='flex flex-wrap gap-10 justify-center mx-20'>
 				{isLoading && <h2>Cargando...</h2>}
 				{error.status !== false && <h2>Error...</h2>}
-				{!isLoading &&
-					// movies &&
+				{isLoading === false &&
+					movies &&
 					movies.map(movie => {
 						return (
 							<MovieCard
