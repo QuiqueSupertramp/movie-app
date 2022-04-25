@@ -21,6 +21,7 @@ const MovieCard = ({ id, title, overview, image, average, year }) => {
 				<img
 					src={`https://image.tmdb.org/t/p/w300/${image}`}
 					alt={title}
+					loading='lazy'
 					className='h-full w-full object-cover rounded-md'
 				/>
 			</div>

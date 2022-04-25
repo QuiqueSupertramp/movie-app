@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Section = ({ title, children, link }) => {
 	const [showLink, setshowLink] = useState(false);
 	const url = link
-		? `/categories?genreID=${link.id}&genreName=${link.name}&page=1`
+		? `/categories?genreID=${link}&genreName=${title}&page=1`
 		: '/categories/trendings';
 	return (
 		<section className='mt-10'>

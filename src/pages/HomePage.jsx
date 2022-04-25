@@ -18,7 +18,7 @@ const HomePage = () => {
 			)}
 			{genres &&
 				genres.map(genre => (
-					<Category key={genre.id} category={genre} title={genre.name} />
+					<Category key={genre.id} category={genre.id} title={genre.name} />
 				))}
 		</>
 	);

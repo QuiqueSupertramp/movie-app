@@ -14,7 +14,7 @@ const initialState = {
 	},
 };
 
-const usePeliculas = (by, category) => {
+const usePeliculas = (by, category = null, isVisible = null) => {
 	const location = useLocation();
 	const [searchParams, setSearchParams] = useSearchParams();
 	const [trendingMovies, setTrendingMovies] = useState(initialState);
@@ -32,10 +32,16 @@ const usePeliculas = (by, category) => {
 		const getFunction = () => {
 			if (by === 'trending') return getTrending(searchParams);
 			if (by === 'query') return getByQuery(searchParams);
-			if (by === 'category') return getByCategory(searchParams, category);
+			if (by === 'category' && isVisible !== false)
+				return getByCategory(searchParams, category);
+			return null;
 		};
 
-		const { success, data, error } = await getFunction();
+		const movieInfo = await getFunction();
+
+		if (movieInfo === null) return;
+
+		const { success, data, error } = movieInfo;
 
 		if (data?.page > data?.total_pages) {
 			setPageParam(1);
@@ -56,7 +62,7 @@ const usePeliculas = (by, category) => {
 
 	useEffect(() => {
 		setMoviesSearch();
-	}, [location.search]);
+	}, [location.search, isVisible]);
 
 	return {
 		movies: trendingMovies.movies,
