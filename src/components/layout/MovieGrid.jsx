@@ -6,7 +6,7 @@ const MovieGrid = ({ by }) => {
 
 	return (
 		<div>
-			<div className='flex flex-wrap gap-10 justify-center mx-20'>
+			<div className='flex flex-wrap gap-10 justify-center'>
 				{isLoading && <h2>Cargando...</h2>}
 				{error.status !== false && <h2>Error...</h2>}
 				{isLoading === false &&

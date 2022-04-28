@@ -5,7 +5,7 @@ const Modal = ({ isOpen, toggleModal, children }) => {
 			<div className='relative shadow-[0_0_30px_black] z-50 w-3/4 h-3/4 bg-slate-200 m-auto rounded-md overflow-auto'>
 				<button
 					onClick={toggleModal}
-					className='absolute top-3 right-4 shadow-md shadow-neutral-400 p-2 leading-none bg-neutral-300 font-bold text-slate-800 rounded-sm'>
+					className='absolute z-40 top-3 right-4 shadow-md shadow-neutral-400 p-2 leading-none bg-neutral-300 font-bold text-slate-800 rounded-sm'>
 					X
 				</button>
 				{children}
