@@ -12,7 +12,7 @@ const TrendingPage = lazy(() => import('./pages/TrendingPage'));
 function App() {
 	return (
 		<>
-			<BrowserRouter>
+			<BrowserRouter basename='/movie-app'>
 				<NavBar />
 
 				<Routes>
