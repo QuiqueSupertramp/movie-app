@@ -1,1 +1,0 @@
-import{M as a,P as r}from"./Pagination.9006ec6d.js";import{a as s,j as e}from"./index.eee67787.js";const n=()=>s("div",{className:"flex flex-col justify-center items-center my-20 gap-10",children:[e(a,{by:"trending"}),e(r,{})]});export{n as default};
