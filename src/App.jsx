@@ -2,11 +2,7 @@ import { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import NavBar from './components/NavBar';
-// import CategoryPage from './pages/CategoryPage';
 import HomePage from './pages/HomePage';
-// import MoviesPage from './pages/MoviesPage';
-// import SearchResultsPage from './pages/SearchResultsPage';
-// import TrendingPage from './pages/TrendingPage';
 
 const CategoryPage = lazy(() => import('./pages/CategoryPage'));
 const MoviesPage = lazy(() => import('./pages/MoviesPage'));
