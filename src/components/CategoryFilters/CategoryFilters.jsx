@@ -20,79 +20,95 @@ const CategoryFilters = ({ toggleModal, params, genres }) => {
 		setFilters(prevFilters => ({ ...prevFilters, minVotes }));
 
 	return (
-		<div>
-			<div>
-				<label htmlFor='genre'>Género</label>
-				<div>
-					{genres &&
-						genres.map(genre => {
-							return (
-								<FilterButton
-									key={genre.id}
-									filters={filters}
-									filter={'genre'}
-									setFilter={setFilterGenre}
-									dataset={genre.id}
-									text={genre.name}
-								/>
-							);
-						})}
+		<div className='m-10'>
+			<div className='flex flex-wrap gap-y-5 gap-x-20'>
+				<div className='w-full'>
+					<label htmlFor='genre' className='font-bold'>
+						Género
+					</label>
+					<div>
+						{genres &&
+							genres.map(genre => {
+								return (
+									<FilterButton
+										key={genre.id}
+										filters={filters}
+										filter={'genre'}
+										setFilter={setFilterGenre}
+										dataset={genre.id}
+										text={genre.name}
+									/>
+								);
+							})}
+					</div>
 				</div>
-			</div>
-			<div>
-				<label htmlFor='sortBy'>Ordenar por: </label>
 				<div>
-					<FilterButton
-						filters={filters}
-						filter={'sortBy'}
-						setFilter={setFilterSortBy}
-						dataset='vote_average.desc'
-						text='Votos'
-					/>
-					<FilterButton
-						filters={filters}
-						filter={'sortBy'}
-						setFilter={setFilterSortBy}
-						dataset='popularity.desc'
-						text='Popularidad'
-					/>
-					<FilterButton
-						filters={filters}
-						filter={'sortBy'}
-						setFilter={setFilterSortBy}
-						dataset='revenue.desc'
-						text='Ingresos'
-					/>
+					<label htmlFor='sortBy' className='font-bold'>
+						Ordenar por:{' '}
+					</label>
+					<div>
+						<FilterButton
+							filters={filters}
+							filter={'sortBy'}
+							setFilter={setFilterSortBy}
+							dataset='vote_average.desc'
+							text='Votos'
+						/>
+						<FilterButton
+							filters={filters}
+							filter={'sortBy'}
+							setFilter={setFilterSortBy}
+							dataset='popularity.desc'
+							text='Popularidad'
+						/>
+						<FilterButton
+							filters={filters}
+							filter={'sortBy'}
+							setFilter={setFilterSortBy}
+							dataset='revenue.desc'
+							text='Ingresos'
+						/>
+					</div>
 				</div>
-			</div>
-			<div>
-				<label htmlFor='sortBy'>Mínimo de votos: </label>
 				<div>
-					<FilterButton
-						filters={filters}
-						filter={'minVotes'}
-						setFilter={setFilterMinVotes}
-						dataset='1'
-						text='1'
-					/>
-					<FilterButton
-						filters={filters}
-						filter={'minVotes'}
-						setFilter={setFilterMinVotes}
-						dataset='100'
-						text='100'
-					/>
-					<FilterButton
-						filters={filters}
-						filter={'minVotes'}
-						setFilter={setFilterMinVotes}
-						dataset='1000'
-						text='1000'
-					/>
+					<label htmlFor='sortBy' className='font-bold'>
+						Mínimo de votos:{' '}
+					</label>
+					<div>
+						<FilterButton
+							filters={filters}
+							filter={'minVotes'}
+							setFilter={setFilterMinVotes}
+							dataset='1'
+							text='1'
+						/>
+						<FilterButton
+							filters={filters}
+							filter={'minVotes'}
+							setFilter={setFilterMinVotes}
+							dataset='100'
+							text='100'
+						/>
+						<FilterButton
+							filters={filters}
+							filter={'minVotes'}
+							setFilter={setFilterMinVotes}
+							dataset='500'
+							text='500'
+						/>
+						<FilterButton
+							filters={filters}
+							filter={'minVotes'}
+							setFilter={setFilterMinVotes}
+							dataset='1000'
+							text='1000'
+						/>
+					</div>
 				</div>
 			</div>
 
 			<button
+				className='px-14 py-2 w-full lg:w-fit bg-slate-900 text-slate-50 rounded-sm mt-14 hover:scale-105'
 				onClick={() => {
 					navigate(
 						`/categories?genreID=${filters.genre}&genreName=${

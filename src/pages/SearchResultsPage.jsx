@@ -1,4 +1,5 @@
-import MovieCard from '../components/layout/MovieCard';
+import MovieGrid from '@/components/layout/MovieGrid';
+import Pagination from '@/components/Pagination';
 import usePeliculas from '../hooks/usePeliculas';
 
 const SearchResultsPage = () => {
@@ -14,18 +15,8 @@ const SearchResultsPage = () => {
 					<p>{error.message}</p>
 				</div>
 			)}
-			{movies !== [] &&
-				movies?.map(movie => (
-					<MovieCard
-						key={movie.id}
-						id={movie.id}
-						title={movie.title}
-						overview={movie.overview}
-						image={movie.image}
-						average={movie.average}
-						year={movie.year}
-					/>
-				))}
+			{movies && <MovieGrid by='query' />}
+			<Pagination />
 		</div>
 	);
 };
